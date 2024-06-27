@@ -39,7 +39,7 @@ with st.sidebar:
                 print(driverSel)
                 lapTimingDetails = driver_trace.plot_traces(int(yearSel), raceSel, sessionSel, driverSel, lapSelect)
 
-        else typeSel is 'Driver Speed Comparison':
+        elif typeSel is 'Driver Speed Comparison':
             driverSel = st.text_input("Enter First Driver")
             driver2Sel = st.text_input("Enter Second Driver")
             lapSelect = st.text_input("Enter Lap Number", placeholder="Pick Fastest")
