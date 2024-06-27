@@ -25,7 +25,8 @@ def plot_traces(yearSel, raceSel, sessionSel, driver1, lapNumber = None):
     fig, ax = plt.subplots(figsize=(12, 8))
     plt.grid(color = "grey")
     ax.set_facecolor(color = "white")
-    ax.plot(driver1_tel['Distance'], driver1_tel['Speed'], color = 'Red', label = driver1)
+    
+    ax.plot(driver1_tel['Distance'], driver1_tel['Speed'], color = fastf1.plotting.driver_color(driver1), label = driver1)
     ax.set_xlabel('Distance in m')
     ax.set_ylabel('Speed in km/h')
 
