@@ -24,7 +24,8 @@ lapTimingDetails = ""
 
 with st.sidebar:
     with st.form("Base Form"):
-        yearSel = st.selectbox("Select Year",yearList())
+        # yearSel = st.selectbox("Select Year",yearList())
+        yearSel = st.text_input("Enter Year:")
         raceSel = st.selectbox("Select Event:", eventList)
         sessionSel = st.selectbox("Select Session:",options=["Race","Qualifying","FP1","FP2", "FP3", "Sprint"])
         
