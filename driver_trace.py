@@ -33,7 +33,7 @@ def plot_traces(yearSel, raceSel, sessionSel, driver1, lapNumber = None):
     ax[2].set_xlabel('Distance in m')
 
     plt.suptitle(f"Lap traces")
-    return plt.show()
+    return fig
     
     # driver1_lap = pd.DataFrame(driver1_lap)
     # return driver1_lap

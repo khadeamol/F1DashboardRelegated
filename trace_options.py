@@ -39,7 +39,7 @@ def fastestLapTrace(yearSel, raceSel, sessionSel, driver1, driver2):
     fig.legend(labels=[driver1, driver2])
 
     plt.suptitle(f"Lap traces")
-    return plt.show()
+    return fig
     
     # driver1_lap = pd.DataFrame(driver1_lap)
     # return driver1_lap

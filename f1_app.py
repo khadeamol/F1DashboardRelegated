@@ -35,13 +35,13 @@ with st.sidebar:
 
 with tab1:
     with st.form("Single Driver Form"):
-            driverSel = st.text_input("Enter Driver Identifier")
-            lapSelect = st.text_input("Enter Lap Number", placeholder="Pick Fastest")
-            submitted = st.form_submit_button("Submit")
-            if submitted:
-                print(driverSel)
-                lapTimingDetails = driver_trace.plot_traces(int(yearSel), raceSel, sessionSel, driverSel, lapSelect)
-                st.pyplot(lapTimingDetails)
+        driverSel = st.text_input("Enter Driver Identifier")
+        lapSelect = st.text_input("Enter Lap Number", placeholder="Pick Fastest")
+        submitted = st.form_submit_button("Submit")
+        if submitted:
+            print(driverSel)
+            lapTimingDetails = driver_trace.plot_traces(int(yearSel), raceSel, sessionSel, driverSel, lapSelect)
+            st.pyplot(lapTimingDetails, use_container_width=True)
 
 
 with tab2:     
@@ -54,7 +54,8 @@ with tab2:
         if submitted:
             print(driverSel)
             lapTimingDetails = trace_options.fastestLapTrace(int(yearSel), raceSel, sessionSel, driverSel, driver2Sel)
-            st.pyplot(lapTimingDetails)
+            st.set_option('deprecation.showPyplotGlobalUse', False)
+            st.pyplot(lapTimingDetails, use_container_width=True)
 
 
 # with st.sidebar:
