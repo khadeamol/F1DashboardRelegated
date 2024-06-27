@@ -28,7 +28,7 @@ with st.sidebar:
         # yearSel = st.text_input("Enter Year:")
         raceSel = st.selectbox("Select Event:", eventList)
         sessionSel = st.selectbox("Select Session:",options=["Race","Qualifying","FP1","FP2", "FP3", "Sprint"])
-        
+        print("Good work!")
         typeSel = st.radio("Analysis Type:", options=['Driver Lap Speed Trace', 'Driver Speed Comparison'])
         typeSubmit = st.form_submit_button("Go!")
         if typeSel is "Driver Lap Speed Trace":
