@@ -46,7 +46,7 @@ with st.sidebar:
             submitted = st.form_submit_button("Submit")
             if submitted:
                 print(driverSel)
-                lapTimingDetails = trace_options.fastestLapTrace(int(yearSel), raceSel, sessionSel, driverSel, lapSelect)
+                lapTimingDetails = trace_options.fastestLapTrace(int(yearSel), raceSel, sessionSel, driverSel, driver2Sel)
         
 
         # driver2Sel = st.text_input("Add Second Driver for comparison")
