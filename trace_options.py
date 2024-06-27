@@ -4,6 +4,7 @@ import fastf1 as ff
 import fastf1.plotting
 import pandas as pd
 
+
 fastf1.plotting.setup_mpl(misc_mpl_mods=False)
 ff.Cache.enable_cache("Cache")
 
@@ -18,11 +19,24 @@ def fastestLapTrace(yearSel, raceSel, sessionSel, driver1, driver2):
     driver1_tel = driver1_lap.get_car_data().add_distance()
     driver2_tel = driver2_lap.get_car_data().add_distance()
     
-    fig, ax = plt.subplots(figsize=(12, 8))
-    ax.plot(driver1_tel['Distance'], driver1_tel['Speed'], color = fastf1.plotting.driver_color(driver1), label = driver1)
-    ax.plot(driver2_tel['Distance'], driver2_tel['Speed'], color = fastf1.plotting.driver_color(driver2), label = driver2)
-    ax.set_xlabel('Distance in m')
-    ax.set_ylabel('Speed in km/h')
+    fig, ax = plt.subplots(3, figsize=(12, 10))
+
+    ax[0].plot(driver1_tel['Distance'], driver1_tel['Speed'], color = fastf1.plotting.driver_color(driver1), label = driver1)
+    ax[0].plot(driver2_tel['Distance'], driver2_tel['Speed'], color = fastf1.plotting.driver_color(driver2), label = driver2)
+    # ax.set_xlabel('Distance in m')
+    ax[0].set_ylabel('Speed in km/h')
+
+    ax[1].plot(driver1_tel['Distance'], driver1_tel['Throttle'], color = fastf1.plotting.driver_color(driver1), label = driver1)
+    ax[1].plot(driver2_tel['Distance'], driver2_tel['Throttle'], color = fastf1.plotting.driver_color(driver2), label = driver2)
+    # ax.set_xlabel('Distance in m')
+    ax[1].set_ylabel('Throttle')
+
+    ax[2].plot(driver1_tel['Distance'], driver1_tel['Brake'], color = fastf1.plotting.driver_color(driver1), label = driver1)
+    ax[2].plot(driver2_tel['Distance'], driver2_tel['Brake'], color = fastf1.plotting.driver_color(driver2), label = driver2)
+    ax[2].set_xlabel('Distance in m')
+    # ax.set_ylabel('Brake')
+
+    fig.legend(labels=[driver1, driver2])
 
     plt.suptitle(f"Lap traces")
     return plt.show()

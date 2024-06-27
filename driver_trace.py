@@ -22,13 +22,15 @@ def plot_traces(yearSel, raceSel, sessionSel, driver1, lapNumber = None):
         print(driver1_lap)
     
     driver1_tel = driver1_lap.get_car_data().add_distance()
-    fig, ax = plt.subplots(figsize=(12, 8))
-    plt.grid(color = "grey")
-    ax.set_facecolor(color = "white")
+    fig, ax = plt.subplots(3, figsize=(12, 8))
     
-    ax.plot(driver1_tel['Distance'], driver1_tel['Speed'], color = fastf1.plotting.driver_color(driver1), label = driver1)
-    ax.set_xlabel('Distance in m')
-    ax.set_ylabel('Speed in km/h')
+    ax[0].plot(driver1_tel['Distance'], driver1_tel['Speed'], color = fastf1.plotting.driver_color(driver1), label = driver1)
+    ax[0].set_ylabel('Speed in km/h')
+    ax[1].plot(driver1_tel['Distance'], driver1_tel['Throttle'], color = fastf1.plotting.driver_color(driver1), label = driver1)
+    ax[1].set_ylabel('Throttle')
+    ax[2].plot(driver1_tel['Distance'], driver1_tel['Brake'], color = fastf1.plotting.driver_color(driver1), label = driver1)
+    ax[2].set_ylabel('Brake')
+    ax[2].set_xlabel('Distance in m')
 
     plt.suptitle(f"Lap traces")
     return plt.show()
